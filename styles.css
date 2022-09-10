@@ -1,20 +1,34 @@
 button.number{
     padding: 30px 30px;
     font-size: 40px;
+    width: 100px;
+    height: 100px;
+    margin: 0px;
 }
 button.operator {
     padding: 30px 30px;
     font-size: 40px;
+    width: 100px;
+    height: 100px;
+    margin: 0px;
 }
+
+
 
 .display {
     background-color: lightgray;
     height: 80px;
-    
+    width: 400px;
 }
 .previousNumber {
     font-size: 25px;
 }
 .currentNumber {
     font-size: 40px;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
