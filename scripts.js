@@ -6,6 +6,7 @@ let operator = "";
 const currentNumber = document.querySelector(".currentNumber");
 const previousNumber = document.querySelector(".previousNumber");
 
+//operator functions
 function add(a, b) {
     return a + b;
 }
@@ -22,17 +23,20 @@ function divide(a, b) {
     return a / b;
 }
 
+//operate function that sends correct calculation based on operator symbol
 function operate(symbol, a, b) {
     if(symbol === "/") {
-        return a / b;
+        return divide(a, b);
     } else if (symbol === "x") {
-        return a * b
+        return multiply(a, b);
     } else if(symbol === "-") {
-        return a - b;
+        return subtract(a, b);
     } else if(symbol === "+") {
-        return a + b;
+        return add(a, b);
     } 
 }
+
+//actions after number press
 function pressNumber(a) {
 
     //'tack' on pressed number to number string
@@ -44,7 +48,10 @@ function pressNumber(a) {
     currentNumber.insertAdjacentText('beforeend', current); 
 }
 
+//actions after operator press
 function pressOperator(a) {
+    //if not equals, AC AND if no operator has been selected, store operator
+    //and change display accordingly
     if(a != '=' && a != 'clear' && operator == "") {
         operator = a;
         console.log(operator);
@@ -57,6 +64,10 @@ function pressOperator(a) {
         previousNumber.textContent = "";
         previousNumber.insertAdjacentText('beforeend', previous);
         previousNumber.insertAdjacentText('beforeend', operator);
+
+    //if user skips equals button and continues pressing operators, then
+    //calculate, change display, THEN allow user to input new number.
+    //ei: 2 + 2 + 3 INSTEAD OF 2 + 2 = 4, + 3
     } else if(operator != "" && a != "clear" && a != '=') {
         current = operate(operator, previous, current);
 
@@ -67,7 +78,7 @@ function pressOperator(a) {
         previousNumber.textContent = "";
         previousNumber.insertAdjacentText('beforeend', previous);
         
-
+    //if equals, operate and display results
     } else if(a == '=') {
         current = operate(operator, previous, current)
         operator = "";
@@ -76,6 +87,8 @@ function pressOperator(a) {
         previousNumber.textContent = "";
         currentNumber.textContent = "";
         currentNumber.insertAdjacentText('beforeend', current);
+    
+    //if nothing or AC, then clear all variables and text content
     } else {
         current = 0;
         previous = 0;
