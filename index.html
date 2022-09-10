@@ -18,25 +18,25 @@
             <button class="number" onclick="pressNumber(7)">7</button>
             <button class="number" onclick="pressNumber(8)">8</button>
             <button class="number" onclick="pressNumber(9)">9</button>
-            <button class="operator">/</button>
+            <button class="operator" onclick="pressOperator('/')">/</button>
         </div>
         <div class="row2">
             <button class="number" onclick="pressNumber(4)">4</button>
             <button class="number" onclick="pressNumber(5)">5</button>
             <button class="number" onclick="pressNumber(6)">6</button>
-            <button class="operator">x</button>
+            <button class="operator" onclick="pressOperator('x')">x</button>
         </div>
         <div class="row3">
             <button class="number" onclick="pressNumber(1)">1</button>
             <button class="number" onclick="pressNumber(2)">2</button>
             <button class="number" onclick="pressNumber(3)">3</button>
-            <button class="operator">-</button>
+            <button class="operator" onclick="pressOperator('-')">-</button>
         </div>
         <div class="row4">
-            <button class="number">AC</button>
+            <button class="operator" onclick="pressOperator('clear')">AC</button>
             <button class="number" onclick="pressNumber(0)">0</button>
-            <button class="number">=</button>
-            <button class="operator">+</button>
+            <button class="operator" onclick="pressOperator('=')">=</button>
+            <button class="operator" onclick="pressOperator('+')">+</button>
         </div>
     </div>
 </body>
