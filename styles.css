@@ -1,0 +1,20 @@
+button.number{
+    padding: 30px 30px;
+    font-size: 40px;
+}
+button.operator {
+    padding: 30px 30px;
+    font-size: 40px;
+}
+
+.display {
+    background-color: lightgray;
+    height: 80px;
+    
+}
+.previousNumber {
+    font-size: 25px;
+}
+.currentNumber {
+    font-size: 40px;
+}
