@@ -45,7 +45,7 @@ function pressNumber(a) {
 }
 
 function pressOperator(a) {
-    if(a != '=' && a != 'clear') {
+    if(a != '=' && a != 'clear' && operator == "") {
         operator = a;
         console.log(operator);
 
@@ -57,8 +57,20 @@ function pressOperator(a) {
         previousNumber.textContent = "";
         previousNumber.insertAdjacentText('beforeend', previous);
         previousNumber.insertAdjacentText('beforeend', operator);
+    } else if(operator != "" && a != "clear" && a != '=') {
+        current = operate(operator, previous, current);
+
+        previous = current;
+        current = "";
+
+        currentNumber.textContent = "";
+        previousNumber.textContent = "";
+        previousNumber.insertAdjacentText('beforeend', previous);
+        
+
     } else if(a == '=') {
         current = operate(operator, previous, current)
+        operator = "";
         console.log(current);
 
         previousNumber.textContent = "";
